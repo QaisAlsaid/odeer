@@ -1,0 +1,311 @@
+#ifndef ODEER_KEY_CODES_HPP
+#define ODEER_KEY_CODES_HPP
+
+#include <cstdint>
+
+/*
+ * keycodes that matches SDL3
+ */
+
+namespace odeer
+{
+  enum class mod_key : uint16_t
+  {
+    none = 0x0000u, /**< no modifier is applicable. */
+
+    left_shift  = 0x0001u, /**< the left Shift key is down. */
+    right_shift = 0x0002u, /**< the right Shift key is down. */
+    lv5_shift   = 0x0004u, /**< the Level 5 Shift key is down. */
+    left_ctrl   = 0x0040u, /**< the left Ctrl (Control) key is down. */
+    right_ctrl  =  0x0080u, /**< the right Ctrl (Control) key is down. */
+    left_alt    = 0x0100u, /**< the left Alt key is down. */
+    right_alt   = 0x0200u, /**< the right Alt key is down. */
+    left_super  = 0x0400u, /**< the left GUI key (often the Windows key) is down. */
+    right_super = 0x0800u, /**< the right GUI key (often the Windows key) is down. */
+    num_lock    = 0x1000u, /**< the Num Lock key (may be located on an extended keypad) is down. */
+    caps_lock   = 0x2000u, /**< the Caps Lock key is down. */
+    mode        = 0x4000u, /**< the !AltGr key is down. */
+    scroll_lock = 0x8000u, /**< the Scroll Lock key is down. */
+
+    //shortcuts
+    ctrl  = (left_ctrl | right_ctrl),   /**< Any Ctrl key is down. */
+    shift = (left_shift | right_shift), /**< Any Shift key is down. */
+    alt   = (left_alt | right_alt),     /**< Any Alt key is down. */
+    super = (right_super | left_super),     /**< Any GUI key is down. */
+  };
+
+  enum class key : uint32_t
+  {
+    unknown                = 00000000u, /**< 0 */
+    ret                    = 0x0000000du, /**< '\r' */ //return
+    escape                 = 0x0000001bu, /**< '\x1b' */
+    backspace              = 0x00000008u, /**< '\b' */
+    tab                    = 0x00000009u, /**< '\t' */
+    space                  = 0x00000020u, /**< ' ' */
+    exclaim                = 0x00000021u, /**< '!' */
+    double_apostrophe      = 0x00000022u, /**< '"' */
+    hash                   = 0x00000023u, /**< '#' */
+    dollar                 = 0x00000024u, /**< '$' */
+    percent                = 0x00000025u, /**< '%' */
+    ampersand              = 0x00000026u, /**< '&' */
+    apostrophe             = 0x00000027u, /**< '\'' */
+    left_paren             = 0x00000028u, /**< '(' */
+    right_paren            = 0x00000029u, /**< ')' */
+    asterisk               = 0x0000002au, /**< '*' */
+    plus                   = 0x0000002bu, /**< '+' */
+    comma                  = 0x0000002cu, /**< ',' */
+    minus                  = 0x0000002du, /**< '-' */
+    period                 = 0x0000002eu, /**< '.' */
+    slash                  = 0x0000002fu, /**< '/' */
+    zero                   = 0x00000030u, /**< '0' */
+    one                    = 0x00000031u, /**< '1' */
+    two                    = 0x00000032u, /**< '2' */
+    three                  = 0x00000033u, /**< '3' */
+    four                   = 0x00000034u, /**< '4' */
+    five                   = 0x00000035u, /**< '5' */
+    six                    = 0x00000036u, /**< '6' */
+    seven                  = 0x00000037u, /**< '7' */
+    eight                  = 0x00000038u, /**< '8' */
+    nine                   = 0x00000039u, /**< '9' */
+    colon                  = 0x0000003au, /**< ':' */
+    semicolon              = 0x0000003bu, /**< ';' */
+    less                   = 0x0000003cu, /**< '<' */
+    equals                 = 0x0000003du, /**< '=' */
+    greater                = 0x0000003eu, /**< '>' */
+    question               = 0x0000003fu, /**< '?' */
+    at                     = 0x00000040u, /**< '@' */
+    left_bracket           = 0x0000005bu, /**< '[' */
+    backslash              = 0x0000005cu, /**< '\\' */
+    right_bracket          = 0x0000005du, /**< ']' */
+    caret                  = 0x0000005eu, /**< '^' */
+    underscore             = 0x0000005fu, /**< '_' */
+    grave                  = 0x00000060u, /**< '`' */
+    a                      = 0x00000061u, /**< 'a' */
+    b                      = 0x00000062u, /**< 'b' */
+    c                      = 0x00000063u, /**< 'c' */
+    d                      = 0x00000064u, /**< 'd' */
+    e                      = 0x00000065u, /**< 'e' */
+    f                      = 0x00000066u, /**< 'f' */
+    g                      = 0x00000067u, /**< 'g' */
+    h                      = 0x00000068u, /**< 'h' */
+    i                      = 0x00000069u, /**< 'i' */
+    j                      = 0x0000006au, /**< 'j' */
+    k                      = 0x0000006bu, /**< 'k' */
+    l                      = 0x0000006cu, /**< 'l' */
+    m                      = 0x0000006du, /**< 'm' */
+    n                      = 0x0000006eu, /**< 'n' */
+    o                      = 0x0000006fu, /**< 'o' */
+    p                      = 0x00000070u, /**< 'p' */
+    q                      = 0x00000071u, /**< 'q' */
+    r                      = 0x00000072u, /**< 'r' */
+    s                      = 0x00000073u, /**< 's' */
+    t                      = 0x00000074u, /**< 't' */
+    u                      = 0x00000075u, /**< 'u,' */
+    v                      = 0x00000076u, /**< 'v' */
+    w                      = 0x00000077u, /**< 'w' */
+    x                      = 0x00000078u, /**< 'x' */
+    y                      = 0x00000079u, /**< 'y' */
+    z                      = 0x0000007au, /**< 'z' */
+    left_brace             = 0x0000007bu, /**< '{' */
+    pipe                   = 0x0000007cu, /**< '|' */
+    right_brace            = 0x0000007du, /**< '}' */
+    tilde                  = 0x0000007eu, /**< '~' */
+    del                    = 0x0000007fu, /**< '\x7f' */ //delete
+    plus_minus             = 0x000000b1u, /**< '\xb1' */
+    caps_lock              = 0x40000039u, /**< sdl_scancode_to_keycode(sdl_scancode_capslock) */
+    f1                     = 0x4000003au, /**< sdl_scancode_to_keycode(sdl_scancode_f1) */
+    f2                     = 0x4000003bu, /**< sdl_scancode_to_keycode(sdl_scancode_f2) */
+    f3                     = 0x4000003cu, /**< sdl_scancode_to_keycode(sdl_scancode_f3) */
+    f4                     = 0x4000003du, /**< sdl_scancode_to_keycode(sdl_scancode_f4) */
+    f5                     = 0x4000003eu, /**< sdl_scancode_to_keycode(sdl_scancode_f5) */
+    f6                     = 0x4000003fu, /**< sdl_scancode_to_keycode(sdl_scancode_f6) */
+    f7                     = 0x40000040u, /**< sdl_scancode_to_keycode(sdl_scancode_f7) */
+    f8                     = 0x40000041u, /**< sdl_scancode_to_keycode(sdl_scancode_f8) */
+    f9                     = 0x40000042u, /**< sdl_scancode_to_keycode(sdl_scancode_f9) */
+    f10                    = 0x40000043u, /**< sdl_scancode_to_keycode(sdl_scancode_f10) */
+    f11                    = 0x40000044u, /**< sdl_scancode_to_keycode(sdl_scancode_f11) */
+    f12                    = 0x40000045u, /**< sdl_scancode_to_keycode(sdl_scancode_f12) */
+    print_screen           = 0x40000046u, /**< sdl_scancode_to_keycode(sdl_scancode_printscreen) */
+    scroll_lock            = 0x40000047u, /**< sdl_scancode_to_keycode(sdl_scancode_scrolllock) */
+    pause                  = 0x40000048u, /**< sdl_scancode_to_keycode(sdl_scancode_pause) */
+    insert                 = 0x40000049u, /**< sdl_scancode_to_keycode(sdl_scancode_insert) */
+    home                   = 0x4000004au, /**< sdl_scancode_to_keycode(sdl_scancode_home) */
+    pageup                 = 0x4000004bu, /**< sdl_scancode_to_keycode(sdl_scancode_pageup) */
+    end                    = 0x4000004du, /**< sdl_scancode_to_keycode(sdl_scancode_end) */
+    pagedown               = 0x4000004eu, /**< sdl_scancode_to_keycode(sdl_scancode_pagedown) */
+    right                  = 0x4000004fu, /**< sdl_scancode_to_keycode(sdl_scancode_right) */
+    left                   = 0x40000050u, /**< sdl_scancode_to_keycode(sdl_scancode_left) */
+    down                   = 0x40000051u, /**< sdl_scancode_to_keycode(sdl_scancode_down) */
+    up                     = 0x40000052u, /**< sdl_scancode_to_keycode(sdl_scancode_up) */
+    num_lock_clear         = 0x40000053u, /**< sdl_scancode_to_keycode(sdl_scancode_numlockclear) */
+    kp_divide              = 0x40000054u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_divide) */
+    kp_multiply            = 0x40000055u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_multiply) */
+    kp_minus               = 0x40000056u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_minus) */
+    kp_plus                = 0x40000057u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_plus) */
+    kp_enter               = 0x40000058u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_enter) */
+    kp_1                   = 0x40000059u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_1) */
+    kp_2                   = 0x4000005au, /**< sdl_scancode_to_keycode(sdl_scancode_kp_2) */
+    kp_3                   = 0x4000005bu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_3) */
+    kp_4                   = 0x4000005cu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_4) */
+    kp_5                   = 0x4000005du, /**< sdl_scancode_to_keycode(sdl_scancode_kp_5) */
+    kp_6                   = 0x4000005eu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_6) */
+    kp_7                   = 0x4000005fu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_7) */
+    kp_8                   = 0x40000060u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_8) */
+    kp_9                   = 0x40000061u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_9) */
+    kp_0                   = 0x40000062u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_0) */
+    kp_period              = 0x40000063u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_period) */
+    application            = 0x40000065u, /**< sdl_scancode_to_keycode(sdl_scancode_application) */
+    power                  = 0x40000066u, /**< sdl_scancode_to_keycode(sdl_scancode_power) */
+    kp_equals              = 0x40000067u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_equals) */
+    f13                    = 0x40000068u, /**< sdl_scancode_to_keycode(sdl_scancode_f13) */
+    f14                    = 0x40000069u, /**< sdl_scancode_to_keycode(sdl_scancode_f14) */
+    f15                    = 0x4000006au, /**< sdl_scancode_to_keycode(sdl_scancode_f15) */
+    f16                    = 0x4000006bu, /**< sdl_scancode_to_keycode(sdl_scancode_f16) */
+    f17                    = 0x4000006cu, /**< sdl_scancode_to_keycode(sdl_scancode_f17) */
+    f18                    = 0x4000006du, /**< sdl_scancode_to_keycode(sdl_scancode_f18) */
+    f19                    = 0x4000006eu, /**< sdl_scancode_to_keycode(sdl_scancode_f19) */
+    f20                    = 0x4000006fu, /**< sdl_scancode_to_keycode(sdl_scancode_f20) */
+    f21                    = 0x40000070u, /**< sdl_scancode_to_keycode(sdl_scancode_f21) */
+    f22                    = 0x40000071u, /**< sdl_scancode_to_keycode(sdl_scancode_f22) */
+    f23                    = 0x40000072u, /**< sdl_scancode_to_keycode(sdl_scancode_f23) */
+    f24                    = 0x40000073u, /**< sdl_scancode_to_keycode(sdl_scancode_f24) */
+    execute                = 0x40000074u, /**< sdl_scancode_to_keycode(sdl_scancode_execute) */
+    help                   = 0x40000075u, /**< sdl_scancode_to_keycode(sdl_scancode_help) */
+    menu                   = 0x40000076u, /**< sdl_scancode_to_keycode(sdl_scancode_menu) */
+    select                 = 0x40000077u, /**< sdl_scancode_to_keycode(sdl_scancode_select) */
+    stop                   = 0x40000078u, /**< sdl_scancode_to_keycode(sdl_scancode_stop) */
+    again                  = 0x40000079u, /**< sdl_scancode_to_keycode(sdl_scancode_again) */
+    undo                   = 0x4000007au, /**< sdl_scancode_to_keycode(sdl_scancode_undo) */
+    cut                    = 0x4000007bu, /**< sdl_scancode_to_keycode(sdl_scancode_cut) */
+    copy                   = 0x4000007cu, /**< sdl_scancode_to_keycode(sdl_scancode_copy) */
+    paste                  = 0x4000007du, /**< sdl_scancode_to_keycode(sdl_scancode_paste) */
+    find                   = 0x4000007eu, /**< sdl_scancode_to_keycode(sdl_scancode_find) */
+    mute                   = 0x4000007fu, /**< sdl_scancode_to_keycode(sdl_scancode_mute) */
+    volume_up              = 0x40000080u, /**< sdl_scancode_to_keycode(sdl_scancode_volumeup) */
+    volume_down            = 0x40000081u, /**< sdl_scancode_to_keycode(sdl_scancode_volumedown) */
+    kp_comma               = 0x40000085u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_comma) */
+    kp_equalsas400         = 0x40000086u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_equalsas400) */
+    alt_erase              = 0x40000099u, /**< sdl_scancode_to_keycode(sdl_scancode_alterase) */
+    sysreq                 = 0x4000009au, /**< sdl_scancode_to_keycode(sdl_scancode_sysreq) */
+    cancel                 = 0x4000009bu, /**< sdl_scancode_to_keycode(sdl_scancode_cancel) */
+    clear                  = 0x4000009cu, /**< sdl_scancode_to_keycode(sdl_scancode_clear) */
+    prior                  = 0x4000009du, /**< sdl_scancode_to_keycode(sdl_scancode_prior) */
+    return2                = 0x4000009eu, /**< sdl_scancode_to_keycode(sdl_scancode_return2) */
+    separator              = 0x4000009fu, /**< sdl_scancode_to_keycode(sdl_scancode_separator) */
+    out                    = 0x400000a0u, /**< sdl_scancode_to_keycode(sdl_scancode_out) */
+    oper                   = 0x400000a1u, /**< sdl_scancode_to_keycode(sdl_scancode_oper) */
+    clear_again            = 0x400000a2u, /**< sdl_scancode_to_keycode(sdl_scancode_clearagain) */
+    crsel                  = 0x400000a3u, /**< sdl_scancode_to_keycode(sdl_scancode_crsel) */
+    exsel                  = 0x400000a4u, /**< sdl_scancode_to_keycode(sdl_scancode_exsel) */
+    kp_00                  = 0x400000b0u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_00) */
+    kp_000                 = 0x400000b1u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_000) */
+    thousands_separator    = 0x400000b2u, /**< sdl_scancode_to_keycode(sdl_scancode_thousandsseparator) */
+    decimal_separator      = 0x400000b3u, /**< sdl_scancode_to_keycode(sdl_scancode_decimalseparator) */
+    currency_unit          = 0x400000b4u, /**< sdl_scancode_to_keycode(sdl_scancode_currencyunit) */
+    currency_subunit       = 0x400000b5u, /**< sdl_scancode_to_keycode(sdl_scancode_currencysubunit) */
+    kp_left_paren          = 0x400000b6u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_leftparen) */
+    kp_righ_tparen         = 0x400000b7u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_rightparen) */
+    kp_left_brace          = 0x400000b8u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_leftbrace) */
+    kp_right_brace         = 0x400000b9u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_rightbrace) */
+    kp_tab                 = 0x400000bau, /**< sdl_scancode_to_keycode(sdl_scancode_kp_tab) */
+    kp_backspace           = 0x400000bbu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_backspace) */
+    kp_a                   = 0x400000bcu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_a) */
+    kp_b                   = 0x400000bdu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_b) */
+    kp_c                   = 0x400000beu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_c) */
+    kp_d                   = 0x400000bfu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_d) */
+    kp_e                   = 0x400000c0u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_e) */
+    kp_f                   = 0x400000c1u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_f) */
+    kp_xor                 = 0x400000c2u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_xor) */
+    kp_power               = 0x400000c3u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_power) */
+    kp_percent             = 0x400000c4u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_percent) */
+    kp_less                = 0x400000c5u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_less) */
+    kp_greater             = 0x400000c6u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_greater) */
+    kp_ampersand           = 0x400000c7u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_ampersand) */
+    kp_doublel_ampersand   = 0x400000c8u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_dblampersand) */
+    kp_vertical_bar        = 0x400000c9u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_verticalbar) */
+    kp_double_vertical_bar = 0x400000cau, /**< sdl_scancode_to_keycode(sdl_scancode_kp_dblverticalbar) */
+    kp_colon               = 0x400000cbu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_colon) */
+    kp_hash                = 0x400000ccu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_hash) */
+    kp_space               = 0x400000cdu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_space) */
+    kp_at                  = 0x400000ceu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_at) */
+    kp_exclam              = 0x400000cfu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_exclam) */
+    kp_memstore            = 0x400000d0u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memstore) */
+    kp_memrecall           = 0x400000d1u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memrecall) */
+    kp_memclear            = 0x400000d2u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memclear) */
+    kp_memadd              = 0x400000d3u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memadd) */
+    kp_memsubtract         = 0x400000d4u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memsubtract) */
+    kp_memmultiply         = 0x400000d5u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memmultiply) */
+    kp_memdivide           = 0x400000d6u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_memdivide) */
+    kp_plusminus           = 0x400000d7u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_plusminus) */
+    kp_clear               = 0x400000d8u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_clear) */
+    kp_clearentry          = 0x400000d9u, /**< sdl_scancode_to_keycode(sdl_scancode_kp_clearentry) */
+    kp_binary              = 0x400000dau, /**< sdl_scancode_to_keycode(sdl_scancode_kp_binary) */
+    kp_octal               = 0x400000dbu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_octal) */
+    kp_decimal             = 0x400000dcu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_decimal) */
+    kp_hexadecimal         = 0x400000ddu, /**< sdl_scancode_to_keycode(sdl_scancode_kp_hexadecimal) */
+    left_ctrl              = 0x400000e0u, /**< sdl_scancode_to_keycode(sdl_scancode_lctrl) */
+    left_shift             = 0x400000e1u, /**< sdl_scancode_to_keycode(sdl_scancode_lshift) */
+    left_alt               = 0x400000e2u, /**< sdl_scancode_to_keycode(sdl_scancode_lalt) */
+    left_gui               = 0x400000e3u, /**< sdl_scancode_to_keycode(sdl_scancode_lgui) */
+    right_ctrl             = 0x400000e4u, /**< sdl_scancode_to_keycode(sdl_scancode_rctrl) */
+    right_shift            = 0x400000e5u, /**< sdl_scancode_to_keycode(sdl_scancode_rshift) */
+    right_alt              = 0x400000e6u, /**< sdl_scancode_to_keycode(sdl_scancode_ralt) */
+    right_super            = 0x400000e7u, /**< sdl_scancode_to_keycode(sdl_scancode_rgui) */
+    mode                   = 0x40000101u, /**< sdl_scancode_to_keycode(sdl_scancode_mode) */
+    sleep                  = 0x40000102u, /**< sdl_scancode_to_keycode(sdl_scancode_sleep) */
+    wake                   = 0x40000103u, /**< sdl_scancode_to_keycode(sdl_scancode_wake) */
+    channel_increment      = 0x40000104u, /**< sdl_scancode_to_keycode(sdl_scancode_channel_increment) */
+    channel_decrement      = 0x40000105u, /**< sdl_scancode_to_keycode(sdl_scancode_channel_decrement) */
+    media_play             = 0x40000106u, /**< sdl_scancode_to_keycode(sdl_scancode_media_play) */
+    media_pause            = 0x40000107u, /**< sdl_scancode_to_keycode(sdl_scancode_media_pause) */
+    media_record           = 0x40000108u, /**< sdl_scancode_to_keycode(sdl_scancode_media_record) */
+    media_fast_forward     = 0x40000109u, /**< sdl_scancode_to_keycode(sdl_scancode_media_fast_forward) */
+    media_rewind           = 0x4000010au, /**< sdl_scancode_to_keycode(sdl_scancode_media_rewind) */
+    media_next_track       = 0x4000010bu, /**< sdl_scancode_to_keycode(sdl_scancode_media_next_track) */
+    media_previous_track   = 0x4000010cu, /**< sdl_scancode_to_keycode(sdl_scancode_media_previous_track) */
+    media_stop             = 0x4000010du, /**< sdl_scancode_to_keycode(sdl_scancode_media_stop) */
+    media_eject            = 0x4000010eu, /**< sdl_scancode_to_keycode(sdl_scancode_media_eject) */
+    media_play_pause       = 0x4000010fu, /**< sdl_scancode_to_keycode(sdl_scancode_media_play_pause) */
+    media_select           = 0x40000110u, /**< sdl_scancode_to_keycode(sdl_scancode_media_select) */
+    ac_new                 = 0x40000111u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_new) */
+    ac_open                = 0x40000112u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_open) */
+    ac_close               = 0x40000113u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_close) */
+    ac_exit                = 0x40000114u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_exit) */
+    ac_save                = 0x40000115u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_save) */
+    ac_print               = 0x40000116u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_print) */
+    ac_properties          = 0x40000117u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_properties) */
+    ac_search              = 0x40000118u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_search) */
+    ac_home                = 0x40000119u, /**< sdl_scancode_to_keycode(sdl_scancode_ac_home) */
+    ac_back                = 0x4000011au, /**< sdl_scancode_to_keycode(sdl_scancode_ac_back) */
+    ac_forward             = 0x4000011bu, /**< sdl_scancode_to_keycode(sdl_scancode_ac_forward) */
+    ac_stop                = 0x4000011cu, /**< sdl_scancode_to_keycode(sdl_scancode_ac_stop) */
+    ac_refresh             = 0x4000011du, /**< sdl_scancode_to_keycode(sdl_scancode_ac_refresh) */
+    ac_bookmarks           = 0x4000011eu, /**< sdl_scancode_to_keycode(sdl_scancode_ac_bookmarks) */
+    softleft               = 0x4000011fu, /**< sdl_scancode_to_keycode(sdl_scancode_softleft) */
+    softright              = 0x40000120u, /**< sdl_scancode_to_keycode(sdl_scancode_softright) */
+    call                   = 0x40000121u, /**< sdl_scancode_to_keycode(sdl_scancode_call) */
+    endcall                = 0x40000122u, /**< sdl_scancode_to_keycode(sdl_scancode_endcall) */
+    left_tab               = 0x20000001u, /**< extended key left tab */
+    lv5_shift              = 0x20000002u, /**< extended key level 5 shift */
+    multi_key_compose      = 0x20000003u, /**< extended key mu,lti-key compose */
+    left_meta              = 0x20000004u, /**< extended key left meta */
+    right_meta             = 0x20000005u, /**< extended key right meta */
+    left_hyper             = 0x20000006u, /**< extended key left hyper */
+    right_hyper            = 0x20000007u, /**< extended key right hyper */
+  };
+
+  enum class button : uint8_t
+  {
+    left   = 1,
+    middle = 2,
+    right  = 3,
+    x1     = 4,
+    x2     = 5,
+  };
+
+  using mouse_buttons_state = uint32_t;
+  using mouse_id = uint32_t;
+  using keyboard_id = uint32_t;
+} //namespace odeer
+
+#endif //ODEER_KEY_CODES_HPP
